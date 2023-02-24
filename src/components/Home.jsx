@@ -14,33 +14,33 @@ function Home(props){
         loaded : false
     })
 
-    // const fetchData = ()=> {
-    //     fetch("https://todolist3-1.onrender.com/",{
-    //         method : "GET",
-    //         credentials : "include",
-    //         headers : {
-    //             'Content-Type' : 'Application/x-www-form-urlencoded'
-    //         },
-    //     }).then(res=>{
-    //         console.log(res)
-    //         if (!res.ok) navigate("/auth/login")
-    //         else return res.json()
-    //     }).then(data => {
-    //         console.log(data);
-    //         setTasks({
-    //             taskArray : data,
-    //             loaded : true
-    //         })
-    //     })
-    // }
-    const fetchData = async() =>{
-        const response = await api.get("/").then(function(response){
-            console.log(response.response.data)
-        }).catch(function(err){
-            console.log(err)
+    const fetchData = ()=> {
+        fetch("https://todolist3-1.onrender.com/",{
+            method : "GET",
+            credentials : "include",
+            headers : {
+                'Content-Type' : 'Application/x-www-form-urlencoded'
+            },
+        }).then(res=>{
+            console.log(res)
+            if (!res.ok) navigate("/auth/login")
+            else return res.json()
+        }).then(data => {
+            console.log(data);
+            setTasks({
+                taskArray : data,
+                loaded : true
+            })
         })
-        console.log(response)
     }
+    // const fetchData = async() =>{
+    //     const response = await api.get("/").then(function(response){
+    //         console.log(response.response.data)
+    //     }).catch(function(err){
+    //         console.log(err)
+    //     })
+    //     console.log(response)
+    // }
         
     return <Fragment>
         <NavBar/>
