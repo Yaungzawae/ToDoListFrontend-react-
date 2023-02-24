@@ -15,8 +15,7 @@ const ToggleAndEditButton = (props) => {
     textDecoration: props.cross ? "line-through" : "none",
   };
   const setLineThrough = (e) => {
-    o;
-    fetch(`http://127.0.0.1:8393/?taskId=${e}&cross=${!lineThrough}`, {
+    fetch(`https://todolist3-1.onrender.com/?taskId=${e}&cross=${!lineThrough}`, {
       method: "PATCH",
       credentials: "include",
       headers: {
@@ -31,7 +30,7 @@ const ToggleAndEditButton = (props) => {
 
   const updateTask = () => {
     fetch(
-      `http://127.0.0.1:8393/?taskId=${props._id}&task=${editValue}&cross=false`,
+      `https://todolist3-1.onrender.com/?taskId=${props._id}&task=${editValue}&cross=false`,
       {
         method: "PATCH",
         credentials: "include",

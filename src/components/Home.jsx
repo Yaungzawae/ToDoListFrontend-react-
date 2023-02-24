@@ -4,6 +4,7 @@ import Warning from "../ui/warning.jsx";
 import NavBar from "../ui/NavBar";
 import TaskInput from "./Taskinput";
 import Tasks from "./Tasks";
+import api from "../api.js";
 
 
 function Home(props){
@@ -13,23 +14,32 @@ function Home(props){
         loaded : false
     })
 
-    const fetchData = ()=> {
-        fetch("http://127.0.0.1:8393/",{
-            method : "GET",
-            credentials : "include",
-            headers : {
-                'Content-Type' : 'Application/x-www-form-urlencoded'
-            },
-        }).then(res=>{
-            if (!res.ok) navigate("/auth/login")
-            else return res.json()
-        }).then(data => {
-            console.log(data);
-            setTasks({
-                taskArray : data,
-                loaded : true
-            })
+    // const fetchData = ()=> {
+    //     fetch("https://todolist3-1.onrender.com/",{
+    //         method : "GET",
+    //         credentials : "include",
+    //         headers : {
+    //             'Content-Type' : 'Application/x-www-form-urlencoded'
+    //         },
+    //     }).then(res=>{
+    //         console.log(res)
+    //         if (!res.ok) navigate("/auth/login")
+    //         else return res.json()
+    //     }).then(data => {
+    //         console.log(data);
+    //         setTasks({
+    //             taskArray : data,
+    //             loaded : true
+    //         })
+    //     })
+    // }
+    const fetchData = async() =>{
+        const response = await api.get("/").then(function(response){
+            console.log(response.response.data)
+        }).catch(function(err){
+            console.log(err)
         })
+        console.log(response)
     }
         
     return <Fragment>

@@ -5,7 +5,7 @@ import CheckIcon from '@mui/icons-material/Check';
 
 const EditButton = (props)=>{
     const updateTask = ()=> {
-        fetch(`http://127.0.0.1:8393/?taskId=${props._id}&task=${props.editValue}&cross=false`,{
+        fetch(`https://todolist3-1.onrender.com/?taskId=${props._id}&task=${props.editValue}&cross=false`,{
             method : "PATCH",
             credentials : "include",
             headers : {

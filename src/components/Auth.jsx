@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import NavBar from "../ui/NavBar";
+import api from "../api";
 
 function Login(props){
     const navigate = useNavigate()
@@ -32,7 +33,7 @@ function Login(props){
         }
         formBody = formBody.join("&");
         console.log(formBody)
-        fetch("http://127.0.0.1:8393/auth/"+props.method, {
+        fetch("https://todolist3-1.onrender.com/auth/"+props.method, {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -40,9 +41,23 @@ function Login(props){
             },
             body: formBody
         }).then(res=>{
+            console.log(res)
             if(res.ok){navigate("/")};
         })
     }
+    const params = new URLSearchParams();
+    params.append("email",user.email)
+    params.append("password",user.password)
+
+    // async function submit(e){
+    //     e.preventDefault();
+    //     const response = await api.post("/auth/"+props.method,params).then(function(response){
+    //         console.log(response.data)
+    //     }).catch(function(err){
+    //         console.log(err)
+    //     })
+    //     console.log(response)
+    // }
     return (
         <Fragment>
         <NavBar />
