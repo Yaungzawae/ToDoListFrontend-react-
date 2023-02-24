@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment, useState } from "react";
+import {Route , Routes} from "react-router-dom"
+import Login from './components/Auth';
+import Home from "./components/Home";
+import Warning from "./ui/warning";
+
 
 function App() {
+  const [warning, setWarning] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Fragment>
+  <Routes>
+    <Route path="/" element={<Home warningStatus={warning} setWarning={setWarning}/>} />
+    <Route path="/auth/login" element={<Login method="login" />} />
+    <Route path="/auth/register" element={<Login method="register" />} />
+  </Routes>
+  </Fragment>
+  )
 }
 
 export default App;

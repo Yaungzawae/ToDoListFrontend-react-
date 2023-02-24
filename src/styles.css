@@ -1,0 +1,101 @@
+/* All */
+body{
+    margin: 0;
+}
+html,body{
+    overflow-x: hidden;
+}
+
+h1{
+    font-size: 2.5rem;
+}
+
+body{
+    background-color: #eeeeee;
+}
+
+/* NavBar */
+.navbar-brand{
+    font-size: 2.5rem;
+}
+
+.nav-item{
+    font-size: 1.5rem;
+}
+
+
+
+/* Auth.jsx */
+.auth-form{
+    padding: 10% 25%;
+    margin: 2% 10%;
+    background-color: #fff;
+}
+
+.auth-form div label, .auth-form h1{
+    color:black;
+}
+
+
+
+
+
+/* task.jsx */
+.each-task{
+    position: relative;
+    background-color: white;
+    border-radius: 7px;
+    box-shadow: 0 2px 5px #ccc;
+    padding: 10px;
+    width: 50%;
+    margin: 16px;
+    margin: 15px auto;
+    text-align: center;
+    user-select: none;
+    vertical-align: middle;
+}
+
+.each-task button{
+    font-size: 1rem;
+    background-color: #ffffff;
+    color: #eee;
+    outline: none;
+    border: none;
+}
+.each-task button :hover {
+    background-color: gray;
+}
+
+.each-task button svg{
+    color: black;
+    pointer-events: none;
+    font-size: 1.5rem;
+}
+
+.each-task p{
+    font-size: 1rem;
+    margin-top: 0.2rem;
+}
+
+/* task Input */
+
+.task-input{
+    margin: 30px auto 20px auto;
+    padding: 15px 25%;
+    border-radius: 7px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.task-input input{
+    display: block;
+    width: 100%;
+    border: none;
+    padding: 4px;
+    outline: none;
+    font-size: 1.2rem;
+    font-family: inherit;
+    resize: none;
+}
+
+
