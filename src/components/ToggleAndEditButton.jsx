@@ -65,7 +65,7 @@ const ToggleAndEditButton = (props) => {
         ></input>
       ) : (
         <h2
-          className="col-lg-8 col-md-8 py-1"
+          className="col-lg-7 col-md-8 py-1"
           style={lineThroughStyle}
           onClick={() => setLineThrough(props._id)}
         >
@@ -74,11 +74,11 @@ const ToggleAndEditButton = (props) => {
       )}
       <p className="col-lg-2 col-md-2 py-1">{props.date}</p>
       {editState ? (
-        <Button className="col-lg-1 col-md-2 py-1" onClick={submitUpdate}>
+        <Button className="col-lg-1 col-md-1 py-1" onClick={submitUpdate}>
           <CheckIcon />
         </Button>
       ) : (
-        <Button className="col-lg-1 col-md-2 py-1" onClick={changeEditState}>
+        <Button className="col-lg-1 col-md-1 py-1" onClick={changeEditState}>
           <EditIcon />
         </Button>
       )}
