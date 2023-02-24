@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import NavBar from "../ui/NavBar";
-import api from "../api";
 
 function Login(props){
     const navigate = useNavigate()

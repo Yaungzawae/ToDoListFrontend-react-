@@ -1,10 +1,8 @@
-import React, {Fragment, useEffect, useState} from "react";
+import React, {Fragment, useState} from "react";
 import { useNavigate } from "react-router-dom";
-import Warning from "../ui/warning.jsx";
 import NavBar from "../ui/NavBar";
 import TaskInput from "./Taskinput";
 import Tasks from "./Tasks";
-import api from "../api.js";
 
 
 function Home(props){

@@ -2,7 +2,7 @@ import { Fragment, useState } from "react";
 import {Route , Routes} from "react-router-dom"
 import Login from './components/Auth';
 import Home from "./components/Home";
-import Warning from "./ui/warning";
+
 
 
 function App() {
