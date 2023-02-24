@@ -10,7 +10,7 @@ const LineThroughToggleText = (props)=>{
     const lineThroughStyle = {
         textDecoration : props.cross ? "line-through" : "none"
     }
-    const setLineThrough = (e)=> {o
+    const setLineThrough = (e)=> {
         fetch(`http://127.0.0.1:8393/?taskId=${e}&cross=${!lineThrough}`,{
             method : "PATCH",
             credentials : "include",
