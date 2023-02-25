@@ -30,7 +30,7 @@ const Tasks = (props) => {
   };
   useEffect(() => {
     props.fetchData();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <div>
       {props.warningStatus && (

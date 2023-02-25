@@ -64,6 +64,7 @@ const ToggleAndEditButton = (props) => {
           value={editValue}
           type="text"
           onChange={handleInput}
+          autoComplete="off"
           autofocus
         ></input>
       ) : (

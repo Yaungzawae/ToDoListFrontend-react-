@@ -16,7 +16,7 @@ const TaskInput = (props) => {
       headers: {
         "Content-Type": "Application/x-www-form-urlencoded",
       },
-    }).then((res) => props.fetchData());
+    }).then(() => props.fetchData());
     setInput("");
   };
   return (
@@ -28,6 +28,8 @@ const TaskInput = (props) => {
         value={input}
         type="text"
         onChange={handleInput}
+        autoComplete="off"
+        autoFocus
       />
       <Button className="my-3" onMouseDown={handleSubmit} variant="contained">
         {" "}
