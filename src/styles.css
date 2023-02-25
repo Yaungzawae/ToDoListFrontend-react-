@@ -69,6 +69,10 @@ body{
     font-size: 1.5rem;
 }
 
+.each-task h2{
+    font-size: 1.5rem;
+}
+
 .each-task p{
     font-size: 1rem;
     margin-top: 0.2rem;

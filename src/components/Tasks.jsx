@@ -59,7 +59,7 @@ const Tasks = (props) => {
                 date={each.date}
               />
               <Button
-                className="col-lg-1 col-md-2 py-1"
+                className="col-lg-1 col-md-1 py-1"
                 id={each._id}
                 onClick={triggerWarning}
               >
