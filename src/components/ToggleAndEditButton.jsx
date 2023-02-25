@@ -68,7 +68,7 @@ const ToggleAndEditButton = (props) => {
         ></input>
       ) : (
         <h2
-          className="col-lg-9 col-md-8 py-1"
+          className="col-lg-9 col-md-9 py-1"
           style={lineThroughStyle}
           onClick={() => setLineThrough(props._id)}
         >
