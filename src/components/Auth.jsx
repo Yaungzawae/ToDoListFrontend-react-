@@ -1,82 +1,92 @@
-import React, { Fragment, useState } from "react"
+import React, { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../ui/NavBar";
 
-function Login(props){
-    const navigate = useNavigate()
-    const [user, setUser] = useState({
-        email : "",
-        password : ""
-    })
-    function handleInput(e){
-        const {name,value} = e.target;
-        setUser(prevValue=>{
-            return {
-                ...prevValue,
-                [name] : value
-            }
-        })
-    }
-    function submit(e){
-        e.preventDefault();
-        var details = {
-            'email': user.email,
-            'password': user.password
-        };
-        
-        var formBody = [];
-        for (var property in details) {
-          var encodedKey = encodeURIComponent(property);
-          var encodedValue = encodeURIComponent(details[property]);
-          formBody.push(encodedKey + "=" + encodedValue);
-        }
-        formBody = formBody.join("&");
-        console.log(formBody)
-        fetch("https://todolist3-1.onrender.com/auth/"+props.method, {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-            },
-            body: formBody
-        }).then(res=>{
-            console.log(res)
-            if(res.ok){navigate("/")};
-        })
-    }
-    const params = new URLSearchParams();
-    params.append("email",user.email)
-    params.append("password",user.password)
+function Login(props) {
+  const navigate = useNavigate();
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+  function handleInput(e) {
+    const { name, value } = e.target;
+    setUser((prevValue) => {
+      return {
+        ...prevValue,
+        [name]: value,
+      };
+    });
+  }
+  function submit(e) {
+    e.preventDefault();
+    var details = {
+      email: user.email,
+      password: user.password,
+    };
 
-    // async function submit(e){
-    //     e.preventDefault();
-    //     const response = await api.post("/auth/"+props.method,params).then(function(response){
-    //         console.log(response.data)
-    //     }).catch(function(err){
-    //         console.log(err)
-    //     })
-    //     console.log(response)
-    // }
-    return (
-        <Fragment>
-        <NavBar />
+    var formBody = [];
+    for (var property in details) {
+      var encodedKey = encodeURIComponent(property);
+      var encodedValue = encodeURIComponent(details[property]);
+      formBody.push(encodedKey + "=" + encodedValue);
+    }
+    formBody = formBody.join("&");
+    console.log(formBody);
+    fetch("https://todolist3-1.onrender.com/auth/" + props.method, {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+      },
+      body: formBody,
+    }).then((res) => {
+      console.log(res);
+      if (res.ok) {
+        navigate("/");
+      }
+    });
+  }
 
-    <form className="auth-form" onSubmit={submit}>
+  return (
+    <Fragment>
+      <NavBar />
+
+      <form className="auth-form" onSubmit={submit}>
         <h1 className="text-center">{props.method.toUpperCase()}</h1>
         <div className="mb-3">
-            <label for="email" className="form-label">Email</label>
-            <input className="form-control my-3" onChange={handleInput} name="email" value={user.email} placeholder="email" type="text"/>
+          <label for="email" className="form-label">
+            Email
+          </label>
+          <input
+            className="form-control my-3"
+            onChange={handleInput}
+            name="email"
+            value={user.email}
+            placeholder="email"
+            type="text"
+          />
         </div>
         <div className="mb-3">
-            <label for="password" className="form-label">Password</label>
-            <input className="form-control my-3" onChange={handleInput} name="password" value={user.password} placeholder="password" type={props.method === "login" ? "password" : "text" }/>
+          <label for="password" className="form-label">
+            Password
+          </label>
+          <input
+            className="form-control my-3"
+            onChange={handleInput}
+            name="password"
+            value={user.password}
+            placeholder="password"
+            type={props.method === "login" ? "password" : "text"}
+          />
         </div>
         <div className="text-center mt-5">
-            <button className="btn btn-dark btn-lg" onMouseDown={submit} >{props.method.toUpperCase()}</button>
+          <button className="btn btn-dark btn-lg" onMouseDown={submit}>
+            {props.method.toUpperCase()}
+          </button>
         </div>
-    </form>
-        </Fragment>
-    )
+      </form>
+    </Fragment>
+  );
 }
 
 export default Login;

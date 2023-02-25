@@ -25,18 +25,33 @@ const NavBar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <button className="btn btn-dark nav-link mx-4" onClick={()=>{navigate("/")}}>
+              <button
+                className="btn btn-dark nav-link mx-4"
+                onClick={() => {
+                  navigate("/");
+                }}
+              >
                 Home
               </button>
             </li>
             <li className="nav-item">
-              <button className="btn btn-dark nav-link mx-4" onClick={()=>{navigate("/auth/register")}}>
+              <button
+                className="btn btn-dark nav-link mx-4"
+                onClick={() => {
+                  navigate("/auth/register");
+                }}
+              >
                 Register
               </button>
             </li>
             <li className="nav-item">
-              <button className="btn btn-dark nav-link mx-4" onClick={()=>{navigate("/auth/login")}}>
-                  Login
+              <button
+                className="btn btn-dark nav-link mx-4"
+                onClick={() => {
+                  navigate("/auth/login");
+                }}
+              >
+                Login
               </button>
             </li>
           </ul>

@@ -15,13 +15,16 @@ const ToggleAndEditButton = (props) => {
     textDecoration: props.cross ? "line-through" : "none",
   };
   const setLineThrough = (e) => {
-    fetch(`https://todolist3-1.onrender.com/?taskId=${e}&cross=${!lineThrough}`, {
-      method: "PATCH",
-      credentials: "include",
-      headers: {
-        "Content-Type": "Application/x-www-form-urlencoded",
-      },
-    }).then((res) => {
+    fetch(
+      `https://todolist3-1.onrender.com/?taskId=${e}&cross=${!lineThrough}`,
+      {
+        method: "PATCH",
+        credentials: "include",
+        headers: {
+          "Content-Type": "Application/x-www-form-urlencoded",
+        },
+      }
+    ).then((res) => {
       props.fetchData();
       console.log(res);
     });
@@ -65,7 +68,7 @@ const ToggleAndEditButton = (props) => {
         ></input>
       ) : (
         <h2
-          className="col-lg-7 col-md-8 py-1"
+          className="col-lg-8 col-md-8 py-1"
           style={lineThroughStyle}
           onClick={() => setLineThrough(props._id)}
         >
