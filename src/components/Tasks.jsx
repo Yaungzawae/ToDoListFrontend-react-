@@ -17,7 +17,7 @@ const Tasks = (props) => {
   };
 
   const deleteTask = (taskId) => {
-    fetch("https://todolist3-1.onrender.com/?taskId=" + taskId, {
+    fetch("/api/?taskId=" + taskId, {
       method: "DELETE",
       credentials: "include",
       headers: {

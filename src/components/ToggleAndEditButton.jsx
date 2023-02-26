@@ -16,7 +16,7 @@ const ToggleAndEditButton = (props) => {
   };
   const setLineThrough = (e) => {
     fetch(
-      `https://todolist3-1.onrender.com/?taskId=${e}&cross=${!lineThrough}`,
+      `/api/?taskId=${e}&cross=${!lineThrough}`,
       {
         method: "PATCH",
         credentials: "include",
@@ -33,7 +33,7 @@ const ToggleAndEditButton = (props) => {
 
   const updateTask = () => {
     fetch(
-      `https://todolist3-1.onrender.com/?taskId=${props._id}&task=${editValue}&cross=false`,
+      `/api/?taskId=${props._id}&task=${editValue}&cross=false`,
       {
         method: "PATCH",
         credentials: "include",
@@ -42,13 +42,13 @@ const ToggleAndEditButton = (props) => {
         },
       }
     ).then((res) => {
-      props.fetchData();
-      setEditValue(props.task);
+      props.fetchData()
       console.log(res);
     });
   };
 
   const changeEditState = () => {
+    setEditValue(props.task);
     setEditState(!editState);
   };
   const submitUpdate = () => {
@@ -65,7 +65,7 @@ const ToggleAndEditButton = (props) => {
           type="text"
           onChange={handleInput}
           autoComplete="off"
-          autofocus
+          autoFocus
         ></input>
       ) : (
         <h2

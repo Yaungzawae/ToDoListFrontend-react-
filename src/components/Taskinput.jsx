@@ -10,7 +10,7 @@ const TaskInput = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("https://todolist3-1.onrender.com/?task=" + input, {
+    fetch("/api/?task=" + input, {
       method: "POST",
       credentials: "include",
       headers: {

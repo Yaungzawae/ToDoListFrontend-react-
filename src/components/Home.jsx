@@ -12,7 +12,7 @@ function Home(props) {
   });
 
   const fetchData = () => {
-    fetch("https://todolist3-1.onrender.com/", {
+    fetch("/api", {
       method: "GET",
       credentials: "include",
       headers: {

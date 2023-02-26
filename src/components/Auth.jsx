@@ -32,7 +32,7 @@ function Login(props) {
     }
     formBody = formBody.join("&");
     console.log(formBody);
-    fetch("https://todolist3-1.onrender.com/auth/" + props.method, {
+    fetch("/api/auth/" + props.method, {
       method: "POST",
       credentials: "include",
       headers: {
@@ -54,7 +54,7 @@ function Login(props) {
       <form className="auth-form" onSubmit={submit}>
         <h1 className="text-center">{props.method.toUpperCase()}</h1>
         <div className="mb-3">
-          <label for="email" className="form-label">
+          <label htmlFor="email" className="form-label">
             Email
           </label>
           <input
@@ -67,7 +67,7 @@ function Login(props) {
           />
         </div>
         <div className="mb-3">
-          <label for="password" className="form-label">
+          <label htmlFor="password" className="form-label">
             Password
           </label>
           <input
